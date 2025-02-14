@@ -1,0 +1,36 @@
+key	value	help
+workingdir	/path/de-analysis/	directory which stores deseq object and result tables
+modules	/path/r_scripts/	modules which are need for the report
+ensembldir	/path/ensembl	directory with existing ensembl annotation files
+countfile	/path/counts/counts.tsv.gz	count file in a tab format
+conditionfile	/path/de-analysis/condition.csv	tab separated file for the condition (one column has to be Sample)
+contrastfile	/path/de-analysis/contrast.csv	tab separated file to the comparisons
+bfxid	project_id	bfxid
+species	gummibear	species
+ensembl	1	ensembl annotation
+appendix	de-expl	added to the filenames (if left empty 'de-expl' will be added to the plots; otherwise the string is '-' separated and only, added, remove are special words and format the string
+#		
+exploratory	Cond	these factors (separated by ','; max 3) have to be columns in the condition file and only these are shown in the exploratory plots
+exclude_genes	genes_exclude_exploratory.csv	file with ensembl ids; genes are excluded from exploratory analysis
+correction		these factors (separated by ','; max 2) are used to run edgeR's removeBatchEffect function on the vsd object; factor have to be a subset of exploratory factors; leave empty if you don't want to do this; this is a purely diagnostic plot
+pcagenes	500	number of genes for PCA
+biplotgenes	25	umber of genes for the PCA BiPlot (do not use to many because each gene is represented by a drawn vector)
+pca	1	create PCA plot
+pca23	0	create PCA plot for level 2 and 3
+biplot	1	create a PCA BiPlot
+mds	0	create MDS plot
+poissondist	0	create Poisson distance plot
+pearson	1	create Pearson plot (available options: 0 - noplot ; 1 - plot with clustering ; 1N - plot without clustering)
+spearman	1	create Spearman plot (available options: 0 - noplot ; 1 - plot with clustering ; 1N - plot without clustering)
+heatmap	1	create heatmap of Euclidean distance (available options: 0 - noplot ; 1 - plot with clustering ; 1N - plot without clustering)
+heatmappoisson	0	create heatmap of Poisson distance (available options: 0 - noplot ; 1 - plot with clustering ; 1N - plot without clustering)
+varplot	1	create plot of genes with highest variance (available options: 0 - noplot ; 1 - plot with clustering ; 1N - plot without clustering)
+vargenes	50	number of genes for highest variance between samples, can be a list (',' separated)
+highexpressedplot	1	create plot of genes with highest expression (available options: 0 - noplot ; 1 - plot with clustering ; 1N - plot without clustering)
+highgenes	50	number of genes for highest expressed genes, can be a list (',' separated)
+plotcounts	genes.csv	must be in de-analysis folder; plots the normalised counts for single genes and each row is an ensemblID which has to be in the countfile and must have at least 1 count
+#		
+padjvalues	none	FDR values for testing (write 'none' if you don't want to do an analysis)
+useIHW	1	use the IHW module for the padj calculation (never use useIHW and doglobalpadj at the same time)
+doglobalpadj	0	do global padj (BH) for the expression results of the same padj (never use useIHW and doglobalpadj at the same time)
+combine		combine these factors to a single factor (leave empty if you don't want to do this)
